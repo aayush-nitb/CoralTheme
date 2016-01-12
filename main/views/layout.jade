@@ -2,10 +2,17 @@ doctype html
 html
     head
         title= title
+
+        //------------------------------ External CSS ----------------------------------------------------
         //bower:css
         link(rel='stylesheet', href='/bower_components/angular-ui-select/dist/select.css')
         //endbower
+        link(rel='stylesheet', href="/node_modules/coralui/build/css/coral.min.js")
+
+        //------------------------------ My CSS ----------------------------------------------------------
         link(rel='stylesheet', href="#{url('style.less')}")
+
+        //------------------------------ External JS -----------------------------------------------------
         //bower:js
         script(src='/bower_components/jquery/dist/jquery.js')
         script(src='/bower_components/angular/angular.js')
@@ -20,7 +27,13 @@ html
         script(src='/bower_components/angular-sanitize/angular-sanitize.js')
         script(src='/bower_components/webcomponentsjs/webcomponents.js')
         //endbower
+        script(src="/node_modules/coralui/build/js/libs/moment.js")
+        script(src="/node_modules/coralui/build/js/coral.min.js")
+
+        //------------------------------ My JS -----------------------------------------------------------
         script(src="#{url('app.coffee')}")
+
         block molecules
-    body
+
+    body.coral--light
         block content
