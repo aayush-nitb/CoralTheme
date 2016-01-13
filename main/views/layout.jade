@@ -7,10 +7,10 @@ html
         //bower:css
         link(rel='stylesheet', href='/bower_components/angular-ui-select/dist/select.css')
         //endbower
-        link(rel='stylesheet', href="/node_modules/coralui/build/css/coral.min.js")
+        link(rel='stylesheet', href="/node_modules/coralui/build/css/coral.min.css")
 
         //------------------------------ My CSS ----------------------------------------------------------
-        link(rel='stylesheet', href="#{url('style.less')}")
+        block css
 
         //------------------------------ External JS -----------------------------------------------------
         //bower:js
@@ -31,7 +31,7 @@ html
         script(src="/node_modules/coralui/build/js/coral.min.js")
 
         //------------------------------ My JS -----------------------------------------------------------
-        script(src="#{url('app.coffee')}")
+        block js
 
         block molecules
 

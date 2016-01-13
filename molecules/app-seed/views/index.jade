@@ -1,11 +1,23 @@
-link(rel="import", href="/bower_components/polymer/polymer.html")
+extends layout
 
-dom-module#app-seed
-    template
-        link(rel="stylesheet", href="#{url('style.less')}")
+block css
+  link(rel="stylesheet", href="#{url('style.less')}")
 
-        .coral-Well {{greeting}}
-        span Update text to change the greeting.
-        input(value="{{greeting::input}}")
+block js
+  script(src="#{url('script.coffee')}")
 
-    script(src="#{url('script.coffee')}")
+block molecules
+
+block content
+  .coral-Well
+    h1 {{greeting}}
+    h3 Update text to change the greeting
+    input.coral-Textfield(value="{{greeting::input}}")
+
+  .coral-Well
+    h1 Examples of coral elements
+    label.coral-Checkbox
+      input.coral-Checkbox-input(type="checkbox", name="check", checked)
+      span.coral-Checkbox-checkmark
+      span.coral-Checkbox-description Checkbox
+    .coral-Button Default Button
