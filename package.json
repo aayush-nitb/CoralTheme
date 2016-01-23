@@ -29,7 +29,7 @@
     "http": "latest",
     "path": "latest",
     "mkdirp": "latest",
-    "coralui": "git+ssh://git@git.corp.adobe.com:Coral/coralui.git#3.10.0"
+    "coralui": "git+ssh://git@git.corp.adobe.com:Coral/coralui.git#3.11.0"
   },
   "noAnalyze": true,
   "license": "Apache",

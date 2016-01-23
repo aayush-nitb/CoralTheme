@@ -10,7 +10,25 @@ block js
   script(src="#{url('app.coffee')}")
 
 block molecules
-  link(rel="import", href="/molecules/app-seed")
 
 block content
-  <app-seed></app-seed>
+  .coral-Well
+    h1 Examples of coral styling elements
+    label.coral-Checkbox
+      input.coral-Checkbox-input(type="checkbox", name="check", checked)
+      span.coral-Checkbox-checkmark
+      span.coral-Checkbox-description Checkbox
+    .coral-Button Default Button
+
+  #via-script.coral-Well
+    h3 This text should be replaced by script generated button
+    
+  .coral-Well
+    h1 Coral Components
+    coral-accordion
+      coral-accordion-item
+        coral-accordion-item-label Panel 1
+        coral-accordion-item-content Panel 1 content
+      coral-accordion-item
+        coral-accordion-item-label Panel 2
+        coral-accordion-item-content Panel 2 content
