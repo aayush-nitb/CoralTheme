@@ -63,24 +63,14 @@ var write = function(compiled, root, outfile){
 });
 var app = express();
 
-app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname);
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
-  app.use('/public', express.static(path.join(__dirname, 'public')));
-});
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname);
+app.set('view engine', 'jade');
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
 routes.configure(app, fileProvider);
 
-http.createServer(app).listen(app.get('port'), function(){
+app.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
