@@ -10,6 +10,7 @@ block js
   script(src="#{url('app.coffee')}")
 
 block molecules
+    script(src="/molecules/coral-weather")
 
 block content
   .coral-Well
@@ -32,3 +33,7 @@ block content
       coral-accordion-item
         coral-accordion-item-label Panel 2
         coral-accordion-item-content Panel 2 content
+
+  .coral-Well
+    h1 Custom Coral Components
+    coral-weather

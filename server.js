@@ -61,27 +61,17 @@ var write = function(compiled, root, outfile){
         next();
     });
 });
+
 var app = express();
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname);
+app.set('view engine', 'jade');
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname);
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
-  app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
-  app.use('/public', express.static(path.join(__dirname, 'public')));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
 routes.configure(app, fileProvider);
 
-http.createServer(app).listen(app.get('port'), function(){
+app.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
