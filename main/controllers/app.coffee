@@ -1,4 +1,4 @@
 button = new Coral.Button()
 button.label.innerHTML = 'My Button'
 $ () ->
-    $("#via-script").html button
+    $("#via-script .replace").html button
